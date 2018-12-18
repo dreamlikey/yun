@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.7.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.wdq.yun</groupId>
+    <artifactId>yun</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0</version>
+    <modules>
+        <module>demo</module>
+        <module>yun-admin</module>
+        <module>yun-pay</module>
+        <module>yun-common</module>
+        <module>yun-domain</module>
+        <module>yun-component</module>
+        <module>yun-api</module>
+        <module>yun-message</module>
+        <module>yun-ucenter</module>
+        <module>yun-shop</module>
+        <module>yun-goods</module>
+        <module>yun-oss</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Finchley.SR2</spring-cloud.version>
+    </properties>
+
+</project>
