@@ -24,6 +24,18 @@
     <description>店铺</description>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.wdq.yun</groupId>
+            <artifactId>yun-domain-shop</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.wdq.yun</groupId>
+            <artifactId>yun-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-elasticsearch</artifactId>

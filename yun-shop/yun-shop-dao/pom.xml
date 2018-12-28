@@ -11,4 +11,11 @@
 
     <artifactId>yun-shop-dao</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>
