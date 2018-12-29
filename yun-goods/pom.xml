@@ -6,12 +6,14 @@
         <groupId>com.wdq.yun</groupId>
         <artifactId>yun</artifactId>
         <version>1.0</version>
-        <relativePath/>
+        <relativePath> ../../yun/pom.xml</relativePath>
     </parent>
+
     <groupId>com.wdq.yun</groupId>
     <artifactId>yun-goods</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>yun-goods</name>
+    <packaging>jar</packaging>
     <description>商品</description>
 
     <dependencies>
@@ -43,8 +45,16 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka-test</artifactId>

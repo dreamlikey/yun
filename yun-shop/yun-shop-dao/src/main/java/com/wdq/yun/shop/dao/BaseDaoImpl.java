@@ -17,7 +17,7 @@ import java.lang.reflect.Type;
  * @Description: 公共持久层实现
  */
 @Repository
-public class BaseDaoImpl<PK, Entity> extends SqlSessionDaoSupport implements BaseDao<Integer,Entity> {
+public class BaseDaoImpl<PK, Entity> extends SqlSessionDaoSupport implements BaseDao<Long,Entity> {
 
     private Class<Entity> entityClass;
 
@@ -46,17 +46,17 @@ public class BaseDaoImpl<PK, Entity> extends SqlSessionDaoSupport implements Bas
     }
 
     @Override
-    public Entity get(Integer id) {
+    public Entity get(Long id) {
         return this.getSqlSession().selectOne(getStatement(MAPPER_GET), id);
     }
 
     @Override
-    public Integer update(Entity entity) {
-        return this.getSqlSession().update(getStatement(MAPPER_UPDATE),entity);
+    public Long update(Entity entity) {
+        return Long.valueOf(this.getSqlSession().update(getStatement(MAPPER_UPDATE),entity));
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(Long id) {
         this.getSqlSession().delete(getStatement(MAPPER_DELETE), id);
     }
 

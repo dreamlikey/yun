@@ -1,9 +1,8 @@
 package com.wdq.yun.shop.api.controller;
 
 import com.wdq.yun.domain.shop.entity.Shop;
-import com.wdq.yun.shop.interfaces.ShopService;
+import com.wdq.yun.shop.api.client.ShopClient;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+
+import javax.annotation.Resource;
 
 /**
  * @author wudq
@@ -20,13 +21,14 @@ import java.util.List;
 @RestController
 public class ShopController {
 
-    @Autowired
-    private ShopService shopService;
+    @Resource
+    private ShopClient shopClient;
 
     @GetMapping(value = "/shop/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Shop getShop(@PathVariable Long id) {
-        Shop shop = shopService.getById(id);
+//        Shop shop = shopService.getById(id);
+        Shop shop = shopClient.getById(id);
         System.out.println(shop.toString());
         return shop;
     }
@@ -39,12 +41,12 @@ public class ShopController {
         shop.setShopNo("C02");
         shop.setdescription("adidas服饰官方商店");
         shop.setOwnerName("wyh");
-        shopService.save(shop);
+//        shopService.save(shop);
     }
 
     @GetMapping(value = "/shop/list", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Shop> listShop() {
-        List<Shop> shops = shopService.listAll();
+        List<Shop> shops = shopClient.listAll();
         return shops;
     }
 

@@ -6,8 +6,9 @@ import com.wdq.yun.shop.dao.ShopDao;
 import com.wdq.yun.shop.interfaces.ShopService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
  * @author wudq
  * 2018/12/18
  */
-@Service
+@RestController
 public class ShopServiceImpl extends BaseServiceImpl<Long, Shop, ShopDao<Long,Shop>> implements ShopService {
 
     @Autowired
@@ -24,7 +25,6 @@ public class ShopServiceImpl extends BaseServiceImpl<Long, Shop, ShopDao<Long,Sh
     }
 
     @Override
-    @Transactional
     public Shop getById(long id) {
         Shop shop = new Shop();
         shop.setShopName("Nike专卖店");
