@@ -12,6 +12,6 @@ import java.util.List;
  * @date 2018/12/19
  * @Description: TODO
  */
-public interface ShopDao<Long, Shop> extends BaseDao<Long, Shop> {
+public interface ShopDao extends BaseDao<Long, Shop> {
     List<Shop> listAll();
 }

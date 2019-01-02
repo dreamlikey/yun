@@ -6,10 +6,11 @@ import com.wdq.yun.shop.dao.ShopDao;
 import com.wdq.yun.shop.interfaces.ShopService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,11 +18,18 @@ import java.util.List;
  * 2018/12/18
  */
 @RestController
-public class ShopServiceImpl extends BaseServiceImpl<Long, Shop, ShopDao<Long,Shop>> implements ShopService {
+public class ShopServiceImpl extends BaseServiceImpl<Long, Shop, ShopDao> implements ShopService {
 
     @Autowired
     public void setEntityDao(ShopDao shopDao) {
         this.entityDao = shopDao;
+    }
+
+    @Override
+    public void save(@RequestBody Shop shop) {
+        shop.setCreateTime(new Date());
+        this.entityDao.save(shop);
+        System.out.println("保存成功："+shop.toString());
     }
 
     @Override
@@ -37,5 +45,15 @@ public class ShopServiceImpl extends BaseServiceImpl<Long, Shop, ShopDao<Long,Sh
     @Override
     public List<Shop> listAll() {
         return this.entityDao.listAll();
+    }
+
+    @Override
+    public void checkShop(Long id) {
+    }
+
+    @Transactional
+    public Long update(@RequestBody Shop shop) {
+        System.out.println(shop.toString());
+        return null;
     }
 }

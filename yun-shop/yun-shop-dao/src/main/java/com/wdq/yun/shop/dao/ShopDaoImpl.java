@@ -12,7 +12,7 @@ import java.util.List;
  * @Description: TODO
  */
 @Repository
-public class ShopDaoImpl extends BaseDaoImpl<Long, Shop> implements ShopDao<Long, Shop>{
+public class ShopDaoImpl extends BaseDaoImpl<Long, Shop> implements ShopDao{
 
     @Override
     public List<Shop> listAll() {

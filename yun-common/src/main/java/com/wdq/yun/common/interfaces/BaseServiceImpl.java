@@ -37,6 +37,7 @@ public abstract class BaseServiceImpl<PK, Entity extends Serializable, EntityDao
     @Override
     @Transactional
     public PK update(Entity t) {
+        System.out.println(t.toString());
         return null;
     }
 
