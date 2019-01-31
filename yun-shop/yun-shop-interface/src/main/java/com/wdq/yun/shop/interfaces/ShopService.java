@@ -1,9 +1,7 @@
 package com.wdq.yun.shop.interfaces;
 
-import com.wdq.yun.common.interfaces.BaseService;
 import com.wdq.yun.domain.shop.entity.Shop;
 
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

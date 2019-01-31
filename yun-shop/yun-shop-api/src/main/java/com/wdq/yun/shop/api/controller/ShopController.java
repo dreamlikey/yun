@@ -1,5 +1,6 @@
 package com.wdq.yun.shop.api.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.wdq.yun.domain.shop.entity.Shop;
 import com.wdq.yun.shop.api.client.ShopClient;
 
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -27,13 +29,15 @@ public class ShopController {
     private ShopClient shopClient;
 
     @GetMapping(value = "/shop/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Shop getShop(@PathVariable Long id) {
+    @HystrixCommand(defaultFallback = "defaultGetSopById")
+    public Shop getShop(@PathVariable long id) {
         Shop shop = shopClient.getById(id);
         System.out.println(shop.toString());
         return shop;
     }
 
     @GetMapping(value = "/shop/list", produces = MediaType.APPLICATION_JSON_VALUE)
+    @HystrixCommand(defaultFallback = "defaultListShop")
     public List<Shop> listShop() {
         List<Shop> shops = shopClient.listAll();
         return shops;
@@ -51,4 +55,21 @@ public class ShopController {
         shopClient.update(shop);
     }
 
+    @HystrixCommand
+    private Shop defaultGetSopById(@PathVariable long id) {
+        System.out.println("执行getById熔断器");
+        Shop shop = new Shop();
+        shop.setShopName("默认店");
+        return shop;
+    }
+
+    @HystrixCommand
+    private List<Shop> defaultListShop() {
+        List<Shop> shops = new ArrayList<>();
+        System.out.println("执行getById熔断器");
+        Shop shop = new Shop();
+        shop.setShopName("默认店");
+        shops.add(shop);
+        return shops;
+    }
 }

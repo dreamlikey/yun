@@ -1,5 +1,6 @@
 package com.wdq.yun.shop.service;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.wdq.yun.common.interfaces.BaseServiceImpl;
 import com.wdq.yun.domain.shop.entity.Shop;
 import com.wdq.yun.shop.dao.ShopDao;
@@ -25,6 +26,7 @@ public class ShopServiceImpl extends BaseServiceImpl<Long, Shop, ShopDao> implem
         this.entityDao = shopDao;
     }
 
+    @HystrixCommand(fallbackMethod="saveFallback")
     @Override
     public void save(@RequestBody Shop shop) {
         shop.setCreateTime(new Date());
@@ -55,5 +57,10 @@ public class ShopServiceImpl extends BaseServiceImpl<Long, Shop, ShopDao> implem
     public Long update(@RequestBody Shop shop) {
         System.out.println(shop.toString());
         return null;
+    }
+
+    @HystrixCommand
+    private void saveFallback(Shop shop) {
+        throw new RuntimeException("save failed!");
     }
 }
