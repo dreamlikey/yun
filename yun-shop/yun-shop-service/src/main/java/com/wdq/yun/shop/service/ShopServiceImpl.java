@@ -18,7 +18,7 @@ import java.util.List;
  * @author wudq
  * 2018/12/18
  */
-@RestController
+@RestController(value = "shopService")
 public class ShopServiceImpl extends BaseServiceImpl<Long, Shop, ShopDao> implements ShopService {
 
     @Autowired
@@ -54,6 +54,7 @@ public class ShopServiceImpl extends BaseServiceImpl<Long, Shop, ShopDao> implem
     }
 
     @Transactional
+    @Override
     public Long update(@RequestBody Shop shop) {
         System.out.println(shop.toString());
         return null;

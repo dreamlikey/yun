@@ -29,7 +29,6 @@ public class ShopController {
     private ShopClient shopClient;
 
     @GetMapping(value = "/shop/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @HystrixCommand(defaultFallback = "defaultGetSopById")
     public Shop getShop(@PathVariable long id) {
         Shop shop = shopClient.getById(id);
         System.out.println(shop.toString());
@@ -37,7 +36,6 @@ public class ShopController {
     }
 
     @GetMapping(value = "/shop/list", produces = MediaType.APPLICATION_JSON_VALUE)
-    @HystrixCommand(defaultFallback = "defaultListShop")
     public List<Shop> listShop() {
         List<Shop> shops = shopClient.listAll();
         return shops;
@@ -53,23 +51,5 @@ public class ShopController {
         shopClient.listAll();
 //        shopClient.checkShop(shop);
         shopClient.update(shop);
-    }
-
-    @HystrixCommand
-    private Shop defaultGetSopById(@PathVariable long id) {
-        System.out.println("执行getById熔断器");
-        Shop shop = new Shop();
-        shop.setShopName("默认店");
-        return shop;
-    }
-
-    @HystrixCommand
-    private List<Shop> defaultListShop() {
-        List<Shop> shops = new ArrayList<>();
-        System.out.println("执行getById熔断器");
-        Shop shop = new Shop();
-        shop.setShopName("默认店");
-        shops.add(shop);
-        return shops;
     }
 }

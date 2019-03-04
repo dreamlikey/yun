@@ -1,5 +1,7 @@
 package com.wdq.yun.shop.dao;
 
+import com.wdq.yun.common.annotation.DataSource;
+import com.wdq.yun.common.constant.DataSourceGlobal;
 import com.wdq.yun.common.dao.BaseDao;
 
 import org.apache.ibatis.session.SqlSession;
@@ -36,15 +38,18 @@ public class BaseDaoImpl<PK, Entity> extends SqlSessionDaoSupport implements Bas
      * @param sqlSessionFactory
      */
     @Autowired
-    public  void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
+    @Override
+    public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
         super.setSqlSessionFactory(sqlSessionFactory);
     }
 
+    @DataSource(DataSourceGlobal.WRITE)
     @Override
     public void save(Entity entity) {
         this.getSqlSession().insert(getStatement(MAPPER_SAVE), entity);
     }
 
+    @DataSource
     @Override
     public Entity get(Long id) {
         return this.getSqlSession().selectOne(getStatement(MAPPER_GET), id);
