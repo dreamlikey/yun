@@ -1,6 +1,6 @@
 package com.wdq.yun.common.annotation;
 
-import com.wdq.yun.common.constant.DataSourceGlobal;
+import com.wdq.yun.common.constant.DynamicDataSourceGlobal;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -16,5 +16,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface DataSource {
 
-    DataSourceGlobal value() default DataSourceGlobal.READ;
+    DynamicDataSourceGlobal value() default DynamicDataSourceGlobal.READ;
 }

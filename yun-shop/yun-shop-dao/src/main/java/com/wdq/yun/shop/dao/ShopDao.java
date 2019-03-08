@@ -4,8 +4,6 @@ import com.wdq.yun.common.annotation.DataSource;
 import com.wdq.yun.common.dao.BaseDao;
 import com.wdq.yun.domain.shop.entity.Shop;
 
-import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 /**
@@ -14,6 +12,6 @@ import java.util.List;
  * @Description: TODO
  */
 public interface ShopDao extends BaseDao<Long, Shop> {
-    @DataSource
+
     List<Shop> listAll();
 }

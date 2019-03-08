@@ -2,7 +2,6 @@ package com.wdq.yun.shop.fallback;
 
 import com.wdq.yun.domain.shop.entity.Shop;
 import com.wdq.yun.shop.api.client.ShopClient;
-import com.wdq.yun.shop.interfaces.ShopService;
 
 import org.springframework.stereotype.Component;
 
@@ -32,7 +31,7 @@ public class ShopClientFallback implements ShopClient {
     @Override
     public List<Shop> listAll() {
         System.out.println(Thread.currentThread().getName());
-        System.out.println("=====执行到了fallback方法=======");
+        System.out.println("=====执行到了list fallback方法=======");
         return null;
     }
 

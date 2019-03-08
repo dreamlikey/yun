@@ -1,8 +1,8 @@
 package com.wdq.yun.shop.api.controller;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.wdq.yun.domain.shop.entity.Shop;
 import com.wdq.yun.shop.api.client.ShopClient;
+import com.wdq.yun.shop.api.client.TestClient;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -21,12 +20,14 @@ import javax.annotation.Resource;
  * @author wudq
  * 2018/12/18
  */
-
 @RestController
 public class ShopController {
 
     @Resource
     private ShopClient shopClient;
+
+    @Resource
+    private TestClient testClient;
 
     @GetMapping(value = "/shop/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Shop getShop(@PathVariable long id) {
@@ -51,5 +52,12 @@ public class ShopController {
         shopClient.listAll();
 //        shopClient.checkShop(shop);
         shopClient.update(shop);
+    }
+
+
+    @GetMapping(value = "/shop/test", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String test() {
+        String resp = testClient.test();
+        return resp;
     }
 }

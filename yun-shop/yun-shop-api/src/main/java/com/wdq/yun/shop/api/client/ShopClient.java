@@ -4,6 +4,7 @@ import com.wdq.yun.domain.shop.entity.Shop;
 import com.wdq.yun.shop.fallback.ShopClientFallback;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,20 +18,20 @@ import java.util.List;
  * @Description: TODO
  */
 
-@FeignClient(value = "shop-service", fallback = ShopClientFallback.class)
+@FeignClient(value = "shop-service-provider")
 public interface ShopClient {
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/shop-service/save", method = RequestMethod.POST)
     void save(@RequestBody Shop shop);
 
-    @RequestMapping(value = "/get", method = RequestMethod.GET)
+    @RequestMapping(value = "/shop-service/get", method = RequestMethod.GET)
     Shop getById(@RequestParam("id") long id);
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/shop-service/list", method = RequestMethod.GET)
     List<Shop> listAll();
 
-    @RequestMapping(value = "/check", method = RequestMethod.GET)
+    @RequestMapping(value = "/shop-service/check", method = RequestMethod.GET)
     void checkShop(@RequestParam("id") Long id);
 
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    @RequestMapping(value = "/shop-service/update", method = RequestMethod.PUT)
     Long update(@RequestBody Shop shop);
 }

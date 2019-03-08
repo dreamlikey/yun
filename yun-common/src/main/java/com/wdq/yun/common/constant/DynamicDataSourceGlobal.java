@@ -5,6 +5,6 @@ package com.wdq.yun.common.constant;
  * @date 2019/3/4
  * @Description: TODO
  */
-public enum DataSourceGlobal {
+public enum DynamicDataSourceGlobal {
     WRITE,READ;
 }
