@@ -44,4 +44,9 @@ public class ShopClientFallback implements ShopClient {
     public Long update(Shop shop) {
         return null;
     }
+
+    @Override
+    public void aliPay() {
+        System.out.println("支付失败");
+    }
 }

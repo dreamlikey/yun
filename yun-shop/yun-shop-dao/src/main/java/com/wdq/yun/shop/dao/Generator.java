@@ -13,9 +13,9 @@ import java.util.Map;
 public class Generator {
 
 	// 根据命名规范，只修改此常量值即可
-	private static String MODULE = "yun-upms";
-	private static String DATABASE = "yun_upms";
-	private static String TABLE_PREFIX = "upms_";
+	private static String MODULE = "luban-dev";
+	private static String DATABASE = "luban_dev";
+	private static String TABLE_PREFIX = "transport";
 	private static String PACKAGE_NAME = "com.wdq.yun.upms";
 	private static String JDBC_DRIVER = PropertiesFileUtil.getInstance("generator").get("generator.jdbc.driver");
 	private static String JDBC_URL = PropertiesFileUtil.getInstance("generator").get("generator.jdbc.url");
@@ -24,7 +24,7 @@ public class Generator {
 	// 需要insert后返回主键的表配置，key:表名,value:主键名
 	private static Map<String, String> LAST_INSERT_ID_TABLES = new HashMap<>();
 	static {
-		LAST_INSERT_ID_TABLES.put("upms_user", "user_id");
+		LAST_INSERT_ID_TABLES.put("transport_program", "id");
 	}
 
 	/**

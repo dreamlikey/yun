@@ -44,4 +44,9 @@ public interface ShopService {
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     Shop test();
+
+    @RequestMapping(value = "/ali_pay", method = RequestMethod.GET)
+    void payByAlipay();
+
+
 }

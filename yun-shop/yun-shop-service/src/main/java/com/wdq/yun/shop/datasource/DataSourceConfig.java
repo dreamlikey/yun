@@ -2,6 +2,7 @@ package com.wdq.yun.shop.datasource;
 
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 
+import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -51,8 +52,8 @@ public class DataSourceConfig {
         return  dynamicDataSource;
     }
 
-    @Bean
-    public PlatformTransactionManager transactionManager(DataSource dataSource) {
-        return new DynamicDataSourceTransactionManager(dataSource);
-    }
+//    @Bean
+//    public PlatformTransactionManager transactionManager(DataSource dataSource) {
+//        return new DynamicDataSourceTransactionManager(dataSource);
+//    }
 }

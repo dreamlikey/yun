@@ -40,4 +40,29 @@ public class Test implements FactoryBean {
     }
 
 
+
+
+    private Long m = 0L;
+
+    public void set1() {
+        m = 0L;
+    }
+
+    public void set2() {
+        m = -1L;
+    }
+
+    public void check() {
+        System.out.println(m);
+        if (m !=0 && m != -1) {
+            System.out.println("ERROR");
+        }
+    }
+
+    public static void main(String[] args) {
+        Test test = new Test();
+        test.set1();
+        test.set2();
+        test.check();
+    }
 }

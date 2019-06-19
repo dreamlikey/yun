@@ -13,5 +13,6 @@ import java.util.List;
  */
 public interface ShopDao extends BaseDao<Long, Shop> {
 
+    @DataSource
     List<Shop> listAll();
 }

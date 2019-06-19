@@ -60,4 +60,9 @@ public class ShopController {
         String resp = testClient.test();
         return resp;
     }
+
+    @GetMapping(value = "/shop/ali_pay", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void payByAlipay() {
+        shopClient.aliPay();
+    }
 }

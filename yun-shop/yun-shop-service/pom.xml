@@ -28,6 +28,11 @@
             <artifactId>yun-shop-interface</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.wdq.yun</groupId>
+            <artifactId>yun-sync-interface</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <!--aop -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -78,6 +83,11 @@
             <artifactId>hystrix-core</artifactId>
             <version>RELEASE</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
     </dependencies>

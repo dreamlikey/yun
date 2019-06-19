@@ -2,8 +2,10 @@ package com.wdq.yun.shop.service;
 
 import com.wdq.yun.common.interfaces.BaseServiceImpl;
 import com.wdq.yun.domain.shop.entity.Shop;
+import com.wdq.yun.shop.client.SyncPaymentClient;
 import com.wdq.yun.shop.dao.ShopDao;
 import com.wdq.yun.shop.interfaces.ShopService;
+import com.wdq.yun.sync.interfaces.payment.SyncPaymentService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +21,9 @@ import java.util.List;
  */
 @RestController
 public class ShopServiceImpl extends BaseServiceImpl<Long, Shop, ShopDao> implements ShopService {
+
+    @Autowired
+    private SyncPaymentClient syncPaymentClient;
 
     @Autowired
     @Override
@@ -70,6 +75,20 @@ public class ShopServiceImpl extends BaseServiceImpl<Long, Shop, ShopDao> implem
         shop.setdescription("Nike服饰官方商店");
         System.out.println(shop.toString());
         return shop;
+    }
+
+    @Override
+    public void payByAlipay() {
+        int count = 1;
+        while(count < 10000) {
+            count++;
+            syncPaymentClient.aliPayEvent();
+        }
+
+    }
+
+    public void payByWechatPay() {
+        syncPaymentClient.wechatPayEvent();
     }
 
 }

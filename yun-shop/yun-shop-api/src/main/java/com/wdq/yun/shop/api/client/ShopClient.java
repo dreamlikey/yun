@@ -1,10 +1,8 @@
 package com.wdq.yun.shop.api.client;
 
 import com.wdq.yun.domain.shop.entity.Shop;
-import com.wdq.yun.shop.fallback.ShopClientFallback;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,4 +32,7 @@ public interface ShopClient {
 
     @RequestMapping(value = "/shop-service/update", method = RequestMethod.PUT)
     Long update(@RequestBody Shop shop);
+
+    @RequestMapping(value = "/shop-service/ali_pay", method = RequestMethod.GET)
+    void aliPay();
 }

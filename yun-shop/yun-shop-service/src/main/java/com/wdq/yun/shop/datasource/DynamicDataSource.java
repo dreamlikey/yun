@@ -17,6 +17,7 @@ import javax.sql.DataSource;
  * @date 2019/3/4
  * @Description: 动态数据源实现读写分离
  */
+@Component
 public class DynamicDataSource extends AbstractRoutingDataSource {
 
     private DataSource writeDataSource;
@@ -33,6 +34,7 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
 
         System.out.println("determineCurrentLookupKey");
         DynamicDataSourceGlobal dataSourceGlobal= DynamicDataSourceHolder.getDataSource();
+        System.out.println(dataSourceGlobal.name());
         if (dataSourceGlobal == null || dataSourceGlobal == DynamicDataSourceGlobal.WRITE) {
             return DynamicDataSourceGlobal.WRITE.name();
         }

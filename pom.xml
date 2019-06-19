@@ -16,7 +16,7 @@
         <module>yun-domain</module>
         <module>yun-component</module>
         <module>yun-api</module>
-        <module>yun-message</module>
+        <module>yun-sync</module>
         <module>yun-ucenter</module>
         <module>yun-shop</module>
         <module>yun-goods</module>
