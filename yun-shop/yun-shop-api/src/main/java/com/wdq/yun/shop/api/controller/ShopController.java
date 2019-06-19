@@ -63,6 +63,6 @@ public class ShopController {
 
     @GetMapping(value = "/shop/ali_pay", produces = MediaType.APPLICATION_JSON_VALUE)
     public void payByAlipay() {
-        shopClient.aliPay();
+        shopClient.aliPay(1);
     }
 }

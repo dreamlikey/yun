@@ -46,7 +46,7 @@ public interface ShopService {
     Shop test();
 
     @RequestMapping(value = "/ali_pay", method = RequestMethod.GET)
-    void payByAlipay();
+    void payByAlipay(@RequestParam("amount") double amount);
 
 
 }

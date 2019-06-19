@@ -5,7 +5,6 @@ import com.wdq.yun.domain.shop.entity.Shop;
 import com.wdq.yun.shop.client.SyncPaymentClient;
 import com.wdq.yun.shop.dao.ShopDao;
 import com.wdq.yun.shop.interfaces.ShopService;
-import com.wdq.yun.sync.interfaces.payment.SyncPaymentService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -78,17 +77,18 @@ public class ShopServiceImpl extends BaseServiceImpl<Long, Shop, ShopDao> implem
     }
 
     @Override
-    public void payByAlipay() {
+    public void payByAlipay(double amount) {
         int count = 1;
         while(count < 10000) {
             count++;
-            syncPaymentClient.aliPayEvent();
+            System.out.println("支付："+count);
+            syncPaymentClient.aliPayEvent(count);
         }
 
     }
 
-    public void payByWechatPay() {
-        syncPaymentClient.wechatPayEvent();
+    public void payByWechatPay(double amount) {
+        syncPaymentClient.wechatPayEvent(1);
     }
 
 }

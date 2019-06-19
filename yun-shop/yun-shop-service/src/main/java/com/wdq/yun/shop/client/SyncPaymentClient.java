@@ -3,6 +3,7 @@ package com.wdq.yun.shop.client;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author wudq
@@ -13,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface SyncPaymentClient {
 
     @RequestMapping(value = "/sync-payment/ali_pay", method = RequestMethod.POST)
-    void aliPayEvent();
+    void aliPayEvent(@RequestParam("amount") double amount);
 
     @RequestMapping(value = "/sync-payment/wechat_pay", method = RequestMethod.POST)
-    void wechatPayEvent();
+    void wechatPayEvent(double amount);
 }

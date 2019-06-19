@@ -4,6 +4,7 @@ import com.wdq.yun.domain.shop.entity.Shop;
 import com.wdq.yun.shop.api.client.ShopClient;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -46,7 +47,7 @@ public class ShopClientFallback implements ShopClient {
     }
 
     @Override
-    public void aliPay() {
+    public void aliPay(@RequestParam("amount") double amount) {
         System.out.println("支付失败");
     }
 }

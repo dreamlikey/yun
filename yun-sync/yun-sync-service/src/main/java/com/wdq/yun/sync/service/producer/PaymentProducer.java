@@ -18,9 +18,9 @@ public class PaymentProducer implements SyncPaymentService {
     public KafkaTemplate kafkaTemplate;
 
     @Override
-    public void aliPayEvent() {
+    public void aliPayEvent(double amount) {
         System.out.println("支付数据同步");
-        kafkaTemplate.send("payment","支付宝到账10000000元");
+        kafkaTemplate.send("payment","支付宝到账"+amount+"元");
     }
 
     @Override
@@ -28,4 +28,5 @@ public class PaymentProducer implements SyncPaymentService {
         System.out.println("支付数据同步");
         kafkaTemplate.send("payment","微信到账10000000元");
     }
+
 }

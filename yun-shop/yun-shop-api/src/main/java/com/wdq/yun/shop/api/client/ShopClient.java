@@ -34,5 +34,5 @@ public interface ShopClient {
     Long update(@RequestBody Shop shop);
 
     @RequestMapping(value = "/shop-service/ali_pay", method = RequestMethod.GET)
-    void aliPay();
+    void aliPay(@RequestParam("amount") double amount);
 }

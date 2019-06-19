@@ -2,6 +2,7 @@ package com.wdq.yun.sync.interfaces.payment;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public interface SyncPaymentService {
 
     @PostMapping("/ali_pay")
-    void aliPayEvent();
+    void aliPayEvent(@RequestParam("amount") double amount);
 
     @PostMapping("/wechat_pay")
     void wechatPayEvent();
