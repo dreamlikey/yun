@@ -112,6 +112,12 @@
             <version>${commons.io.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.12</version>
+        </dependency>
+
         <!--mysql -->
         <dependency>
             <groupId>mysql</groupId>

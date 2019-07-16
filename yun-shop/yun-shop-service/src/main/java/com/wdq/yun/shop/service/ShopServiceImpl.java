@@ -80,9 +80,9 @@ public class ShopServiceImpl extends BaseServiceImpl<Long, Shop, ShopDao> implem
     public void payByAlipay(double amount) {
         int count = 1;
         while(count < 10000) {
-            count++;
             System.out.println("支付："+count);
             syncPaymentClient.aliPayEvent(count);
+            count++;
         }
 
     }
