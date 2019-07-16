@@ -12,7 +12,7 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 
 @RestController("/test")
-public class TestController {
+public class RASTestController {
 
     private String publicKey;
     private String privateKey;
