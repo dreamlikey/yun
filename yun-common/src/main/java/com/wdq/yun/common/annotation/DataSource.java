@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 
 /**
  * @author wudq
- * @date 2019/3/4 000414
+ * @date 2019/3/4
  * @Description: TODO
  */
 @Retention(RetentionPolicy.RUNTIME)

@@ -40,18 +40,6 @@ public class DynamicDataSourceAspect {
             DynamicDataSourceHolder.putDataSource(dataSource.value());
             System.out.println("Switch DataSource to [{}] in Method [{}] " + DynamicDataSourceHolder.getDataSource() +"   "+ point.getSignature());
         }
-//        //---------------------修改mybatis的数据源-----------------------
-//        //修改MyBatis的数据源
-//        SqlSessionFactoryBean sqlSessionFactoryBean = (SqlSessionFactoryBean)SpringContextUtil.getBean(SqlSessionFactoryBean.class);
-//        try {
-//            Environment environment = sqlSessionFactoryBean.getObject().getConfiguration().getEnvironment();
-//            Field dataSourceField = environment.getClass().getDeclaredField("dataSource");
-//            dataSourceField.setAccessible(true);//跳过检查
-//            dataSourceField.set(environment,dataSource);//修改mybatis的数据源
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-
     }
 
     @After("pointCut()")

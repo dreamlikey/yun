@@ -59,6 +59,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
        	)
 	</insert>
 
+	<select id="get" resultMap="RMShop">
+		SELECT <include refid="Shopcolumns" />
+		FROM shop
+		WHERE `id` = #{id}
+	</select>
+
 	<select id="listAll" resultMap="RMShop">
 		select * from shop
 	</select>

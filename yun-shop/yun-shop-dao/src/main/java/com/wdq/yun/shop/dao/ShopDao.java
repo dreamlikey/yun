@@ -1,6 +1,7 @@
 package com.wdq.yun.shop.dao;
 
 import com.wdq.yun.common.annotation.DataSource;
+import com.wdq.yun.common.constant.DynamicDataSourceGlobal;
 import com.wdq.yun.common.dao.BaseDao;
 import com.wdq.yun.domain.shop.entity.Shop;
 
@@ -13,6 +14,6 @@ import java.util.List;
  */
 public interface ShopDao extends BaseDao<Long, Shop> {
 
-    @DataSource
+    @DataSource(value = DynamicDataSourceGlobal.READ)
     List<Shop> listAll();
 }

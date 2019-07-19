@@ -1,6 +1,7 @@
 package com.wdq.yun.shop.dao;
 
 import com.wdq.yun.common.annotation.DataSource;
+import com.wdq.yun.common.constant.DynamicDataSourceGlobal;
 import com.wdq.yun.domain.shop.entity.Shop;
 
 import org.springframework.stereotype.Repository;
@@ -15,7 +16,7 @@ import java.util.List;
 @Repository
 public class ShopDaoImpl extends BaseDaoImpl<Long, Shop> implements ShopDao{
 
-    @DataSource
+    @DataSource(value = DynamicDataSourceGlobal.READ)
     @Override
     public List<Shop> listAll() {
         return this.getSqlSession().selectList(getStatement("listAll"),null);

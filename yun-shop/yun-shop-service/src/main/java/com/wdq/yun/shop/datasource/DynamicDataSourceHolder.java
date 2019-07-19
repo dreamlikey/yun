@@ -22,4 +22,12 @@ public class DynamicDataSourceHolder {
     public static void clearDataSource() {
         holder.remove();
     }
+
+    public static void write() {
+        holder.set(DynamicDataSourceGlobal.WRITE);
+    }
+
+    public static void read() {
+        holder.set(DynamicDataSourceGlobal.READ);
+    }
 }

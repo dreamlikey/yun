@@ -32,9 +32,7 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
     @Override
     protected Object determineCurrentLookupKey() {
 
-        System.out.println("determineCurrentLookupKey");
         DynamicDataSourceGlobal dataSourceGlobal= DynamicDataSourceHolder.getDataSource();
-        System.out.println(dataSourceGlobal.name());
         if (dataSourceGlobal == null || dataSourceGlobal == DynamicDataSourceGlobal.WRITE) {
             return DynamicDataSourceGlobal.WRITE.name();
         }
@@ -47,7 +45,6 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
      */
     @Override
     public void afterPropertiesSet() {
-        System.out.println("afterPropertiesSet");
 
         if (writeDataSource == null) {
             throw new IllegalArgumentException("Property 'writeDataSource' is required");

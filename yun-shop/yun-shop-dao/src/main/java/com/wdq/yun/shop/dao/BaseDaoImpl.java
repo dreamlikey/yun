@@ -49,7 +49,7 @@ public class BaseDaoImpl<PK, Entity> extends SqlSessionDaoSupport implements Bas
         this.getSqlSession().insert(getStatement(MAPPER_SAVE), entity);
     }
 
-    @DataSource
+    @DataSource(DynamicDataSourceGlobal.WRITE)
     @Override
     public Entity get(Long id) {
         return this.getSqlSession().selectOne(getStatement(MAPPER_GET), id);
