@@ -6,5 +6,5 @@ package com.wdq.yun.common.constant;
  * @Description: TODO
  */
 public enum DynamicDataSourceGlobal {
-    WRITE,READ;
+    WRITE,READ,SHARDING;
 }

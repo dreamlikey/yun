@@ -4,10 +4,13 @@ import com.wdq.yun.common.constant.DynamicDataSourceGlobal;
 
 /**
  * @author wudq
- * @date 2019/3/4 000414
+ * @date 2019/3/4
  * @Description: TODO
  */
 public class DynamicDataSourceHolder {
+    /**
+     * 每个线程绑定一个数据源
+     */
     public static ThreadLocal<DynamicDataSourceGlobal> holder = new ThreadLocal();
 
 

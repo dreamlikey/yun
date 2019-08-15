@@ -16,7 +16,7 @@ import java.util.List;
 @Repository
 public class ShopDaoImpl extends BaseDaoImpl<Long, Shop> implements ShopDao{
 
-    @DataSource(value = DynamicDataSourceGlobal.READ)
+    @DataSource(value = DynamicDataSourceGlobal.SHARDING)
     @Override
     public List<Shop> listAll() {
         return this.getSqlSession().selectList(getStatement("listAll"),null);

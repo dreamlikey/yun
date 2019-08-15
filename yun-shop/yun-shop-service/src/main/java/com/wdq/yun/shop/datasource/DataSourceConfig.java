@@ -37,16 +37,28 @@ public class DataSourceConfig {
     }
 
     @Bean
+    @ConfigurationProperties(prefix = "spring.datasource.druid.sharding")
+    public DataSource shardingDataSource() {
+        DataSource dataSource = DruidDataSourceBuilder.create().build();
+        return dataSource;
+    }
+
+    @Bean
     public DataSource dynamicDataSource() {
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
         DataSource writeDataSource = writeDataSource();
         DataSource readDataSource = readDataSource();
+        DataSource shardingDataSource = shardingDataSource();
         List<DataSource> readDataSources = new ArrayList<>();
         readDataSources.add(readDataSource);
+        /** 读*/
         dynamicDataSource.setWriteDataSource(writeDataSource);
+        /** 写*/
         dynamicDataSource.setReadDataSources(readDataSources);
+        /** mycat分片*/
+        dynamicDataSource.setShardingDataSource(shardingDataSource);
         System.out.println("----数据源绑定成功----");
-        return  dynamicDataSource;
+        return dynamicDataSource;
     }
 
 }

@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 /**
  * @author wudq
  * @date 2019/3/4
- * @Description: TODO
+ * @Description: 数据源类型注解，默认读
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)

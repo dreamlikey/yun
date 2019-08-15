@@ -22,6 +22,8 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
 
     private DataSource writeDataSource;
 
+    private DataSource shardingDataSource;
+
     private List<DataSource> readDataSources;
 
 
@@ -36,7 +38,6 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
         if (dataSourceGlobal == null || dataSourceGlobal == DynamicDataSourceGlobal.WRITE) {
             return DynamicDataSourceGlobal.WRITE.name();
         }
-        int index = ThreadLocalRandom.current().nextInt(0, readDataSources.size());
         return dataSourceGlobal.name();
     }
 
@@ -51,6 +52,7 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
         }
         Map<Object, Object> targetDataSources = new HashMap<>();
         targetDataSources.put(DynamicDataSourceGlobal.WRITE.name(), writeDataSource);
+        targetDataSources.put(DynamicDataSourceGlobal.SHARDING.name(),shardingDataSource);
         for (int i = 0; i < readDataSources.size(); i++) {
             targetDataSources.put(DynamicDataSourceGlobal.READ.name(), readDataSources.get(i));
         }
@@ -67,5 +69,9 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
     public void setReadDataSources(List<DataSource> readDataSources) {
         this.readDataSources = readDataSources;
 
+    }
+
+    public void setShardingDataSource(DataSource shardingDataSource) {
+        this.shardingDataSource = shardingDataSource;
     }
 }

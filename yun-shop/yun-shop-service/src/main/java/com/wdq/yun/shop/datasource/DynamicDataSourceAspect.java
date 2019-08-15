@@ -23,20 +23,19 @@ import java.lang.reflect.Method;
 @Component
 public class DynamicDataSourceAspect {
 
-    @Pointcut("execution(public * com.wdq.yun.shop.dao.ShopDao.*(..))")
+    @Pointcut("execution(public * com.wdq.yun.shop.dao.*.*(..))")
     public void pointCut() {
     }
-
     @Before("pointCut()")
     public void before(JoinPoint point){
         System.out.println("---动态配置数据源---");
         Object target = point.getTarget();
-        Class<?>[] clazzs =target.getClass().getInterfaces();
+        Class<?>[] clazzs = target.getClass().getInterfaces();
         MethodSignature methodSignature = (MethodSignature) point.getSignature();
         Method method = methodSignature.getMethod();
         if (method != null) {
+            //获取数据源注解，切换对应数据源
             DataSource dataSource = method.getAnnotation(DataSource.class);
-            Annotation[] annotations = method.getDeclaredAnnotations();
             DynamicDataSourceHolder.putDataSource(dataSource.value());
             System.out.println("Switch DataSource to [{}] in Method [{}] " + DynamicDataSourceHolder.getDataSource() +"   "+ point.getSignature());
         }
