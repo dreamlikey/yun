@@ -1,6 +1,7 @@
 package com.wdq.yun.shop.service;
 
 import com.wdq.yun.common.interfaces.BaseServiceImpl;
+import com.wdq.yun.component.exception.BusinessException;
 import com.wdq.yun.domain.shop.entity.Shop;
 import com.wdq.yun.shop.client.SyncPaymentClient;
 import com.wdq.yun.shop.dao.ShopDao;
@@ -11,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 
@@ -40,6 +40,10 @@ public class ShopServiceImpl extends BaseServiceImpl<Long, Shop, ShopDao> implem
 
     @Override
     public Shop getById(long id) {
+        System.out.println(id);
+        if (id==1) {
+            throw new BusinessException(-1,"业务异常了大佬");
+        }
         return this.entityDao.get(id);
     }
 

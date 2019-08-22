@@ -26,17 +26,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.wdq.yun</groupId>
-            <artifactId>yun-component-log</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.wdq.yun</groupId>
-            <artifactId>yun-component-cache</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
         </dependency>
@@ -105,6 +94,7 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+
     </dependencies>
 
     <build>

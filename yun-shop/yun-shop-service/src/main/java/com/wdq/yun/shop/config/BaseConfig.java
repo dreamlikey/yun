@@ -5,11 +5,10 @@ import org.springframework.context.annotation.ImportResource;
 
 /**
  * @author wudq
- * @date 2019/7/16
+ * @date 2019/8/21
  * @Description:
  */
 @Configuration
-@ImportResource({"classpath:cache-redis.xml",
-                 "classpath:cache-trace.xml"})
+@ImportResource({"classpath:cache-redis.xml"})
 public class BaseConfig {
 }

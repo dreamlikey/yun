@@ -37,6 +37,22 @@
             <version>${project.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.wdq.yun</groupId>
+            <artifactId>yun-component-cache</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wdq.yun</groupId>
+            <artifactId>yun-component-trace</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wdq.yun</groupId>
+            <artifactId>yun-component-log</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>

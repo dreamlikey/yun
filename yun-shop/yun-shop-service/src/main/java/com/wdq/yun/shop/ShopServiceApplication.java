@@ -12,8 +12,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 /**
  * @author wudq
- * @date 2018/12/28 002815
- * @Description: TODO
+ * @date 2018/12/28
+ * @Description:
  */
 @SpringBootApplication
 @EnableEurekaClient
