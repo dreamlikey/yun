@@ -78,12 +78,10 @@ public class RedisConfig {
                                                                 poolConfig(jedisPoolConfig).
                                                                 build();
         //单机配置 + 连接池
-        RedisConnectionFactory redisConnectionFactory = new JedisConnectionFactory(config,jedisClientConfiguration);
-        return redisConnectionFactory ;
+        return new JedisConnectionFactory(config,jedisClientConfiguration) ;
     }
 
-    @Bean
-    @ConditionalOnMissingBean(name = "redisTemplate")
+    @Bean(name="redisTemplate")
     public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
         RedisTemplate<Object, Object> template = new RedisTemplate<>();
         //使用fastjson序列化
@@ -98,8 +96,7 @@ public class RedisConfig {
         return template;
     }
 
-    @Bean
-    @ConditionalOnMissingBean(StringRedisTemplate.class)
+    @Bean(name="stringRedisTemplate")
     public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
         StringRedisTemplate template = new StringRedisTemplate();
         template.setConnectionFactory(redisConnectionFactory);

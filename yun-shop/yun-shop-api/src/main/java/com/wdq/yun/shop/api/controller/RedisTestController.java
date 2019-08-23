@@ -40,4 +40,10 @@ public class RedisTestController {
         return res;
     }
 
+    @GetMapping(value = "/getObj")
+    public Object getObj() {
+        Shop res = redisService.getObj("ship", Shop.class);
+        return res;
+    }
+
 }

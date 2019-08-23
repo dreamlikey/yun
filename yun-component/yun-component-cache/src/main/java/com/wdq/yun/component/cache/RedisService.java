@@ -1,5 +1,7 @@
 package com.wdq.yun.component.cache;
 
+import com.alibaba.fastjson.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.DataType;
@@ -31,15 +33,6 @@ public class RedisService {
 
 	@Autowired
 	private RedisTemplate redisTemplate;
-
-	public void setRedisTemplate(StringRedisTemplate stringRedisTemplate) {
-		this.stringRedisTemplate = stringRedisTemplate;
-	}
-
-	public StringRedisTemplate getRedisTemplate() {
-		return this.stringRedisTemplate;
-	}
-
 
 	/** -------------------key相关操作--------------------- */
 
@@ -234,6 +227,16 @@ public class RedisService {
 	 */
 	public String get(String key) {
 		return stringRedisTemplate.opsForValue().get(key);
+	}
+
+	/**
+	 * 获取指定 key 的值
+	 * @param key
+	 * @return Object
+	 */
+	public <T>T getObj(String key, Class<T> clazz) {
+		JSONObject jsonObject = (JSONObject) redisTemplate.opsForValue().get(key);
+		return jsonObject.toJavaObject(clazz);
 	}
 
 	/**
