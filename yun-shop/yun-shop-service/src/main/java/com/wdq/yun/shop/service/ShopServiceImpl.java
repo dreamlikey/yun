@@ -15,10 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 import java.util.List;
 
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @author wudq
  * 2018/12/18
  */
+@Slf4j
 @RestController
 public class ShopServiceImpl extends BaseServiceImpl<Long, Shop, ShopDao> implements ShopService {
 
@@ -40,7 +44,7 @@ public class ShopServiceImpl extends BaseServiceImpl<Long, Shop, ShopDao> implem
 
     @Override
     public Shop getById(long id) {
-        System.out.println(id);
+        log.info("获取商铺：{}",id);
         if (id==1) {
             throw new BusinessException(-1,"业务异常了大佬");
         }

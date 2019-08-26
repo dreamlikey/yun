@@ -1,7 +1,10 @@
 package com.wdq.yun.shop.api.controller;
 
+import com.wdq.yun.component.cache.RedisBaseConfig;
 import com.wdq.yun.component.exception.BusinessException;
+import com.wdq.yun.component.log.LogbackBaseConfig;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
