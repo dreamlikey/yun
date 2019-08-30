@@ -28,9 +28,4 @@ public class LogbackBaseConfig {
     @Value("${env}")
     private String env;
 
-//    @Bean
-//    public LogbackBaseConfig logbackBaseConfig() {
-//        return new LogbackBaseConfig();
-//    }
-
 }
