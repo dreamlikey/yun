@@ -6,10 +6,13 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 /**
@@ -36,8 +39,8 @@ public class DataSourceConfig {
         return dataSource;
     }
 
-    @Bean
-    @ConfigurationProperties(prefix = "spring.datasource.druid.sharding")
+//    @Bean
+//    @ConfigurationProperties(prefix = "spring.datasource.druid.sharding")
     public DataSource shardingDataSource() {
         DataSource dataSource = DruidDataSourceBuilder.create().build();
         return dataSource;
@@ -48,7 +51,7 @@ public class DataSourceConfig {
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
         DataSource writeDataSource = writeDataSource();
         DataSource readDataSource = readDataSource();
-        DataSource shardingDataSource = shardingDataSource();
+//        DataSource shardingDataSource = shardingDataSource();
         List<DataSource> readDataSources = new ArrayList<>();
         readDataSources.add(readDataSource);
         /** 读*/
@@ -56,7 +59,7 @@ public class DataSourceConfig {
         /** 写*/
         dynamicDataSource.setReadDataSources(readDataSources);
         /** mycat分片*/
-        dynamicDataSource.setShardingDataSource(shardingDataSource);
+//        dynamicDataSource.setShardingDataSource(shardingDataSource);
         System.out.println("----数据源绑定成功----");
         return dynamicDataSource;
     }

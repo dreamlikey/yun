@@ -5,15 +5,16 @@
     <property name="ENCODER_PATTERN"
               value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %-5level %logger{5} - %msg%n"/>
 
-    <timestamp key="byDay" datePattern="yyyy-MM-dd"/>
+    <timestamp key="byDay" datePattern="yyyyMMdd"/>
+    <timestamp key="byHour" datePattern="yyyyMMddHH"/>
     <timestamp key="byMinute" datePattern="yyyyMMddHHmm"/>
     <timestamp key="bySecond" datePattern="yyyyMMddHHmm"/>
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${path}/@project.artifactId@/${env}_${byMinute}.log</file>
+        <file>${path}/@project.artifactId@/${env}_${yyyyMMddHH}.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--按天轮转 -->
-            <fileNamePattern>${path}/@project.artifactId@/${env}_%d{yyyyMMddHHmm}.log</fileNamePattern>
+            <fileNamePattern>${path}/@project.artifactId@/${env}_%d{yyyyMMddHH}.log</fileNamePattern>
             <maxHistory>60</maxHistory>
             <totalSizeCap>20GB</totalSizeCap>
         </rollingPolicy>

@@ -42,6 +42,7 @@ public class RedisTestController {
 
     @GetMapping(value = "/getObj")
     public Object getObj() {
+        System.out.println("-------getObj");
         Shop res = redisService.getObj("ship", Shop.class);
         return res;
     }

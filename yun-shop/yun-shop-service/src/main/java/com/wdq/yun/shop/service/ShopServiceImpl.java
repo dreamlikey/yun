@@ -44,7 +44,10 @@ public class ShopServiceImpl extends BaseServiceImpl<Long, Shop, ShopDao> implem
 
     @Override
     public Shop getById(long id) {
+        String s = null;
+        s.replace("123", "456");
         log.info("获取商铺：{}",id);
+        int i = 1/0;
         if (id==1) {
             throw new BusinessException(-1,"业务异常了大佬");
         }

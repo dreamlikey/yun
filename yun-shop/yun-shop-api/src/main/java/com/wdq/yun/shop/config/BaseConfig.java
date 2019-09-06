@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ImportResource;
  */
 @Configuration
 @ImportResource({"classpath:cache-redis.xml",
-                 "classpath:cache-trace.xml",
+//                 "classpath:cache-trace.xml",
                  "classpath:component-log.xml"})
 public class BaseConfig {
 }

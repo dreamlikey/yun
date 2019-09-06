@@ -1,21 +1,31 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true
   aop:
     proxy-target-class: true
     auto: true
   application:
     name: shop-service-provider
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler:
+      probability: 1.0 # 将采样比例设置为 1.0，也就是全部都需要。默认是 0.1
+  zipkin:
+    base-url: http://localhost:9411/ # 指定了 Zipkin 服务器的地址
   datasource:
     druid:
       write:
-        url: jdbc:mysql://192.168.8.112:3306/yun_shop?useUnicode=true&characterEncoding=utf8
+        url: jdbc:mysql://192.168.8.112:3306/yun_shop?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
         username: root
         password: 123456
       read:
-        url: jdbc:mysql://192.168.8.112:3306/yun_shop_slave1?useUnicode=true&characterEncoding=utf8
+        url: jdbc:mysql://192.168.8.112:3306/yun_shop_slave1?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
         username: root
         password: 123456
       sharding:
-        url: jdbc:mysql://192.168.8.112:8066/TESTDB?useUnicode=true&characterEncoding=utf8
+        url: jdbc:mysql://192.168.8.112:8066/TESTDB?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
         username: root
         password: 123456
     type: com.alibaba.druid.pool.DruidDataSource

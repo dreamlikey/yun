@@ -2,6 +2,7 @@ package com.wdq.yun.shop.datasource;
 
 import com.wdq.yun.common.constant.DynamicDataSourceGlobal;
 
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 import org.springframework.stereotype.Component;
 
@@ -52,7 +53,7 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
         }
         Map<Object, Object> targetDataSources = new HashMap<>();
         targetDataSources.put(DynamicDataSourceGlobal.WRITE.name(), writeDataSource);
-        targetDataSources.put(DynamicDataSourceGlobal.SHARDING.name(),shardingDataSource);
+//        targetDataSources.put(DynamicDataSourceGlobal.SHARDING.name(),shardingDataSource);
         for (int i = 0; i < readDataSources.size(); i++) {
             targetDataSources.put(DynamicDataSourceGlobal.READ.name(), readDataSources.get(i));
         }
