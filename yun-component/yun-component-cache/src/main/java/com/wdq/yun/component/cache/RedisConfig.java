@@ -19,6 +19,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+import lombok.extern.slf4j.Slf4j;
 import redis.clients.jedis.JedisPoolConfig;
 
 /**
@@ -26,6 +27,7 @@ import redis.clients.jedis.JedisPoolConfig;
  * @date 2019/7/16
  * @Description:
  */
+@Slf4j
 @Configuration
 @EnableApolloConfig(value = {"TEST1.redis"})
 @ConditionalOnClass(RedisOperations.class)

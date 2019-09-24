@@ -12,14 +12,17 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 /**
+ * 限流
  * @author wudq
  * @date 2019/9/5
  * @Description:
  */
 @Component
 public class RateLimitByIpGatewayFilter implements GatewayFilter, Ordered {
-
-    RateLimiter rateLimiter = RateLimiter.create(1.0);
+    /**
+     * 每秒5个令牌
+     */
+    RateLimiter rateLimiter = RateLimiter.create(5.0);
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         String ip = exchange.getRequest().getRemoteAddress().getAddress().getHostAddress();
@@ -34,6 +37,6 @@ public class RateLimitByIpGatewayFilter implements GatewayFilter, Ordered {
 
     @Override
     public int getOrder() {
-        return 0;
+        return -100;
     }
 }

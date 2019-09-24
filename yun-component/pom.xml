@@ -17,6 +17,7 @@
         <module>yun-component-log</module>
         <module>yun-component-cache</module>
         <module>yun-component-trace</module>
+        <module>yun-component-datasource</module>
     </modules>
 
     <dependencies>

@@ -13,6 +13,13 @@
 
 
     <dependencies>
+        <!-- datasource 组件-->
+        <dependency>
+            <groupId>com.wdq.yun</groupId>
+            <artifactId>yun-component-datasource</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>com.wdq.yun</groupId>
             <artifactId>yun-shop-dao</artifactId>

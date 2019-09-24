@@ -55,11 +55,13 @@ public class BaseDaoImpl<PK, Entity> extends SqlSessionDaoSupport implements Bas
         return this.getSqlSession().selectOne(getStatement(MAPPER_GET), id);
     }
 
+    @DataSource(DynamicDataSourceGlobal.WRITE)
     @Override
     public Long update(Entity entity) {
         return Long.valueOf(this.getSqlSession().update(getStatement(MAPPER_UPDATE),entity));
     }
 
+    @DataSource(DynamicDataSourceGlobal.WRITE)
     @Override
     public void delete(Long id) {
         this.getSqlSession().delete(getStatement(MAPPER_DELETE), id);

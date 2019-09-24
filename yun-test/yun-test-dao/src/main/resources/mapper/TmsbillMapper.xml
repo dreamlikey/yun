@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wdq.yun.domain.test.entity.Tmsbill">
+
+    <resultMap id="BaseResultMap" type="com.wdq.yun.domain.test.entity.Tmsbill" >
+        <result column="id" property="id" />
+        <result column="keywords" property="keywords" />
+        <result column="parentId" property="parentId" />
+        <result column="parentNo" property="parentNo" />
+        <result column="waybillId" property="waybillId" />
+        <result column="waybillNo" property="waybillNo" />
+        <result column="thirdNo" property="thirdNo" />
+        <result column="departureCity" property="departureCity" />
+        <result column="arrivalCity" property="arrivalCity" />
+        <result column="cargoType" property="cargoType" />
+        <result column="cargoNum" property="cargoNum" />
+        <result column="freightAmount" property="freightAmount" />
+        <result column="waybillCarId" property="waybillCarId" />
+        <result column="projectId" property="projectId" />
+        <result column="projectName" property="projectName" />
+        <result column="programId" property="programId" />
+        <result column="programName" property="programName" />
+        <result column="operationUserId" property="operationUserId" />
+        <result column="driverId" property="driverId" />
+        <result column="driverName" property="driverName" />
+        <result column="driverMobileNo" property="driverMobileNo" />
+        <result column="vehicleId" property="vehicleId" />
+        <result column="licensePlateNo" property="licensePlateNo" />
+        <result column="vehicleOwnerId" property="vehicleOwnerId" />
+        <result column="vehicleOwnerType" property="vehicleOwnerType" />
+        <result column="logisticId" property="logisticId" />
+        <result column="invoiceId" property="invoiceId" />
+        <result column="draweeName" property="draweeName" />
+        <result column="remark" property="remark" />
+        <result column="runningStatus" property="runningStatus" />
+        <result column="exceptionStatus" property="exceptionStatus" />
+        <result column="createTime" property="createTime" />
+        <result column="loadingTime" property="loadingTime" />
+        <result column="receiveTime" property="receiveTime" />
+        <result column="billPassTime" property="billPassTime" />
+        <result column="payFreightTime" property="payFreightTime" />
+        <result column="lastUpdateTime" property="lastUpdateTime" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+                `id`,
+                `keywords`,
+                `parentId`,
+                `parentNo`,
+                `waybillId`,
+                `waybillNo`,
+                `thirdNo`,
+                `departureCity`,
+                `arrivalCity`,
+                `cargoType`,
+                `cargoNum`,
+                `freightAmount`,
+                `waybillCarId`,
+                `projectId`,
+                `projectName`,
+                `programId`,
+                `programName`,
+                `operationUserId`,
+                `driverId`,
+                `driverName`,
+                `driverMobileNo`,
+                `vehicleId`,
+                `licensePlateNo`,
+                `vehicleOwnerId`,
+                `vehicleOwnerType`,
+                `logisticId`,
+                `invoiceId`,
+                `draweeName`,
+                `remark`,
+                `runningStatus`,
+                `exceptionStatus`,
+                `createTime`,
+                `loadingTime`,
+                `receiveTime`,
+                `billPassTime`,
+                `payFreightTime`,
+                `lastUpdateTime`
+    </sql>
+
+    <insert id="save" useGeneratedKeys="true" keyColumn="id" parameterType="com.wdq.yun.domain.test.entity.Tmsbill">
+        INSERT INTO tmsbill
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test ='null != id'>
+                `id`,
+            </if>
+            <if test ='null != keywords'>
+                `keywords`,
+            </if>
+            <if test ='null != parentId'>
+                `parentId`,
+            </if>
+            <if test ='null != parentNo'>
+                `parentNo`,
+            </if>
+            <if test ='null != waybillId'>
+                `waybillId`,
+            </if>
+            <if test ='null != waybillNo'>
+                `waybillNo`,
+            </if>
+            <if test ='null != thirdNo'>
+                `thirdNo`,
+            </if>
+            <if test ='null != departureCity'>
+                `departureCity`,
+            </if>
+            <if test ='null != arrivalCity'>
+                `arrivalCity`,
+            </if>
+            <if test ='null != cargoType'>
+                `cargoType`,
+            </if>
+            <if test ='null != cargoNum'>
+                `cargoNum`,
+            </if>
+            <if test ='null != freightAmount'>
+                `freightAmount`,
+            </if>
+            <if test ='null != waybillCarId'>
+                `waybillCarId`,
+            </if>
+            <if test ='null != projectId'>
+                `projectId`,
+            </if>
+            <if test ='null != projectName'>
+                `projectName`,
+            </if>
+            <if test ='null != programId'>
+                `programId`,
+            </if>
+            <if test ='null != programName'>
+                `programName`,
+            </if>
+            <if test ='null != operationUserId'>
+                `operationUserId`,
+            </if>
+            <if test ='null != driverId'>
+                `driverId`,
+            </if>
+            <if test ='null != driverName'>
+                `driverName`,
+            </if>
+            <if test ='null != driverMobileNo'>
+                `driverMobileNo`,
+            </if>
+            <if test ='null != vehicleId'>
+                `vehicleId`,
+            </if>
+            <if test ='null != licensePlateNo'>
+                `licensePlateNo`,
+            </if>
+            <if test ='null != vehicleOwnerId'>
+                `vehicleOwnerId`,
+            </if>
+            <if test ='null != vehicleOwnerType'>
+                `vehicleOwnerType`,
+            </if>
+            <if test ='null != logisticId'>
+                `logisticId`,
+            </if>
+            <if test ='null != invoiceId'>
+                `invoiceId`,
+            </if>
+            <if test ='null != draweeName'>
+                `draweeName`,
+            </if>
+            <if test ='null != remark'>
+                `remark`,
+            </if>
+            <if test ='null != runningStatus'>
+                `runningStatus`,
+            </if>
+            <if test ='null != exceptionStatus'>
+                `exceptionStatus`,
+            </if>
+            <if test ='null != createTime'>
+                `createTime`,
+            </if>
+            <if test ='null != loadingTime'>
+                `loadingTime`,
+            </if>
+            <if test ='null != receiveTime'>
+                `receiveTime`,
+            </if>
+            <if test ='null != billPassTime'>
+                `billPassTime`,
+            </if>
+            <if test ='null != payFreightTime'>
+                `payFreightTime`,
+            </if>
+            <if test ='null != lastUpdateTime'>
+                `lastUpdateTime`
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test ='null != id'>
+                #{id},
+            </if>
+            <if test ='null != keywords'>
+                #{keywords},
+            </if>
+            <if test ='null != parentId'>
+                #{parentId},
+            </if>
+            <if test ='null != parentNo'>
+                #{parentNo},
+            </if>
+            <if test ='null != waybillId'>
+                #{waybillId},
+            </if>
+            <if test ='null != waybillNo'>
+                #{waybillNo},
+            </if>
+            <if test ='null != thirdNo'>
+                #{thirdNo},
+            </if>
+            <if test ='null != departureCity'>
+                #{departureCity},
+            </if>
+            <if test ='null != arrivalCity'>
+                #{arrivalCity},
+            </if>
+            <if test ='null != cargoType'>
+                #{cargoType},
+            </if>
+            <if test ='null != cargoNum'>
+                #{cargoNum},
+            </if>
+            <if test ='null != freightAmount'>
+                #{freightAmount},
+            </if>
+            <if test ='null != waybillCarId'>
+                #{waybillCarId},
+            </if>
+            <if test ='null != projectId'>
+                #{projectId},
+            </if>
+            <if test ='null != projectName'>
+                #{projectName},
+            </if>
+            <if test ='null != programId'>
+                #{programId},
+            </if>
+            <if test ='null != programName'>
+                #{programName},
+            </if>
+            <if test ='null != operationUserId'>
+                #{operationUserId},
+            </if>
+            <if test ='null != driverId'>
+                #{driverId},
+            </if>
+            <if test ='null != driverName'>
+                #{driverName},
+            </if>
+            <if test ='null != driverMobileNo'>
+                #{driverMobileNo},
+            </if>
+            <if test ='null != vehicleId'>
+                #{vehicleId},
+            </if>
+            <if test ='null != licensePlateNo'>
+                #{licensePlateNo},
+            </if>
+            <if test ='null != vehicleOwnerId'>
+                #{vehicleOwnerId},
+            </if>
+            <if test ='null != vehicleOwnerType'>
+                #{vehicleOwnerType},
+            </if>
+            <if test ='null != logisticId'>
+                #{logisticId},
+            </if>
+            <if test ='null != invoiceId'>
+                #{invoiceId},
+            </if>
+            <if test ='null != draweeName'>
+                #{draweeName},
+            </if>
+            <if test ='null != remark'>
+                #{remark},
+            </if>
+            <if test ='null != runningStatus'>
+                #{runningStatus},
+            </if>
+            <if test ='null != exceptionStatus'>
+                #{exceptionStatus},
+            </if>
+            <if test ='null != createTime'>
+                #{createTime},
+            </if>
+            <if test ='null != loadingTime'>
+                #{loadingTime},
+            </if>
+            <if test ='null != receiveTime'>
+                #{receiveTime},
+            </if>
+            <if test ='null != billPassTime'>
+                #{billPassTime},
+            </if>
+            <if test ='null != payFreightTime'>
+                #{payFreightTime},
+            </if>
+            <if test ='null != lastUpdateTime'>
+                #{lastUpdateTime}
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete" >
+        DELETE FROM tmsbill
+        WHERE `id` = #{id}
+    </delete>
+
+    <update id="update" parameterType="com.wdq.yun.domain.test.entity.Tmsbill">
+        UPDATE tmsbill
+        <set>
+            <if test ='null != id'>id = #{id},</if>
+            <if test ='null != keywords'>keywords = #{keywords},</if>
+            <if test ='null != parentId'>parentId = #{parentId},</if>
+            <if test ='null != parentNo'>parentNo = #{parentNo},</if>
+            <if test ='null != waybillId'>waybillId = #{waybillId},</if>
+            <if test ='null != waybillNo'>waybillNo = #{waybillNo},</if>
+            <if test ='null != thirdNo'>thirdNo = #{thirdNo},</if>
+            <if test ='null != departureCity'>departureCity = #{departureCity},</if>
+            <if test ='null != arrivalCity'>arrivalCity = #{arrivalCity},</if>
+            <if test ='null != cargoType'>cargoType = #{cargoType},</if>
+            <if test ='null != cargoNum'>cargoNum = #{cargoNum},</if>
+            <if test ='null != freightAmount'>freightAmount = #{freightAmount},</if>
+            <if test ='null != waybillCarId'>waybillCarId = #{waybillCarId},</if>
+            <if test ='null != projectId'>projectId = #{projectId},</if>
+            <if test ='null != projectName'>projectName = #{projectName},</if>
+            <if test ='null != programId'>programId = #{programId},</if>
+            <if test ='null != programName'>programName = #{programName},</if>
+            <if test ='null != operationUserId'>operationUserId = #{operationUserId},</if>
+            <if test ='null != driverId'>driverId = #{driverId},</if>
+            <if test ='null != driverName'>driverName = #{driverName},</if>
+            <if test ='null != driverMobileNo'>driverMobileNo = #{driverMobileNo},</if>
+            <if test ='null != vehicleId'>vehicleId = #{vehicleId},</if>
+            <if test ='null != licensePlateNo'>licensePlateNo = #{licensePlateNo},</if>
+            <if test ='null != vehicleOwnerId'>vehicleOwnerId = #{vehicleOwnerId},</if>
+            <if test ='null != vehicleOwnerType'>vehicleOwnerType = #{vehicleOwnerType},</if>
+            <if test ='null != logisticId'>logisticId = #{logisticId},</if>
+            <if test ='null != invoiceId'>invoiceId = #{invoiceId},</if>
+            <if test ='null != draweeName'>draweeName = #{draweeName},</if>
+            <if test ='null != remark'>remark = #{remark},</if>
+            <if test ='null != runningStatus'>runningStatus = #{runningStatus},</if>
+            <if test ='null != exceptionStatus'>exceptionStatus = #{exceptionStatus},</if>
+            <if test ='null != createTime'>createTime = #{createTime},</if>
+            <if test ='null != loadingTime'>loadingTime = #{loadingTime},</if>
+            <if test ='null != receiveTime'>receiveTime = #{receiveTime},</if>
+            <if test ='null != billPassTime'>billPassTime = #{billPassTime},</if>
+            <if test ='null != payFreightTime'>payFreightTime = #{payFreightTime},</if>
+            <if test ='null != lastUpdateTime'>lastUpdateTime = #{lastUpdateTime}</if>
+        </set>
+        WHERE `id` = #{id}
+    </update>
+
+
+    <select id="get" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM tmsbill
+        WHERE `id` = #{id}
+    </select>
+
+    <select id="pageList" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM tmsbill
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="pageListCount" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM tmsbill
+    </select>
+
+</mapper>

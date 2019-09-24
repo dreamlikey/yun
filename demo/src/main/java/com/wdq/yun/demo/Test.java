@@ -2,6 +2,7 @@ package com.wdq.yun.demo;
 
 import org.springframework.beans.factory.FactoryBean;
 
+import java.net.*;
 import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Date;
@@ -60,6 +61,13 @@ public class Test implements FactoryBean {
     }
 
     public static void main(String[] args) {
+        String ip = null;
+        try {
+            ip = InetAddress.getLocalHost().getHostAddress();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        System.out.println("ip:"+ip);
         Test test = new Test();
         test.set1();
         test.set2();

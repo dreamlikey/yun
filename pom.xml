@@ -23,6 +23,7 @@
         <module>yun-oss</module>
         <module>yun-eureka</module>
         <module>yun-gateway</module>
+        <module>yun-test</module>
     </modules>
 
     <parent>

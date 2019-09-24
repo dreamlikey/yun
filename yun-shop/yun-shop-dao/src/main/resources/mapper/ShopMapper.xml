@@ -59,6 +59,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
        	)
 	</insert>
 
+	<update id="update" parameterType="com.wdq.yun.domain.shop.entity.Shop">
+		UPDATE shop
+		<set>
+			<if test ='null != shopName'>shopName = #{shopName},</if>
+			<if test ='null != shopNo'>shopNo = #{shopNo},</if>
+			<if test ='null != level'>level = #{level},</if>
+			<if test ='null != ownerId'>ownerId = #{ownerId},</if>
+			<if test ='null != ownerName'>ownerName = #{ownerName},</if>
+			<if test ='null != type'>type = #{type},</if>
+			<if test ='null != status'>status = #{status},</if>
+			<if test ='null != description'>description = #{description},</if>
+		</set>
+		WHERE `id` = #{id}
+	</update>
+
 	<select id="get" resultMap="RMShop">
 		SELECT <include refid="Shopcolumns" />
 		FROM shop

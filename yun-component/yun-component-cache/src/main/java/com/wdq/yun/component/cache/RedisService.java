@@ -2,6 +2,7 @@ package com.wdq.yun.component.cache;
 
 import com.alibaba.fastjson.JSONObject;
 
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.DataType;
@@ -22,11 +23,15 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Redis
  */
+@Slf4j
 @Component
-public class RedisService {
+public class RedisService implements InitializingBean {
 
 	@Autowired
 	private StringRedisTemplate stringRedisTemplate;
@@ -1433,4 +1438,9 @@ public class RedisService {
         });
         return result;
     }
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		log.error("<---- 缓存组件加载成功 ---->");
+	}
 }
