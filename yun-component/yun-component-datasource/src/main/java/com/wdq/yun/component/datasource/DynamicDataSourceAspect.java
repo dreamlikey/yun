@@ -45,7 +45,6 @@ public class DynamicDataSourceAspect {
                 DynamicDataSourceHolder.putDataSource(dataSource.value());
             }
             log.error("Switch DataSource to [{}] in Method [{}] ",DynamicDataSourceHolder.getDataSource(),point.getSignature());
-//            System.out.println("Switch DataSource to [{}] in Method [{}] ",DynamicDataSourceHolder.getDataSource(),point.getSignature());
         }
     }
 

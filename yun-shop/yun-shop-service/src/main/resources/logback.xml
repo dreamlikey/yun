@@ -11,7 +11,6 @@
     <timestamp key="bySecond" datePattern="yyyyMMddHHmm"/>
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${path}/@project.artifactId@/${env}_${yyyyMMddHH}.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--按天轮转 -->
             <fileNamePattern>${path}/@project.artifactId@/${env}_%d{yyyyMMddHH}.log</fileNamePattern>
